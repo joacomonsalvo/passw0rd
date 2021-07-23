@@ -1,7 +1,7 @@
 import random
 
 
-class Generator:
+class Password:
     def __init__(self):
         # Characters
         self.numbers = "1234567890"
@@ -13,7 +13,7 @@ class Generator:
         # Characters List
         self.pwd = []
 
-    def generate(self, length=64):
+    def generator(self, length=64):
         # Program
         for count in range(length):
             choice = random.choice(self.characters)
