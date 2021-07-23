@@ -2,25 +2,33 @@ import random
 
 
 class Password:
-    def __init__(self):
-        # Characters
-        self.numbers = "1234567890"
-        self.low = "qwertyuiopasdfghjklzxcvbnm"
-        self.upper = "QWERTYUIOPASDFGHJKLZXCVBNM"
-        self.symbols = "!@#$%^&*()-_=+~[]/;[]|}{:>?<"
-        self.characters = self.numbers + self.low + self.upper + self.symbols
+    # Characters
+    numbers = "1234567890"
+    low = "qwertyuiopasdfghjklzxcvbnm"
+    upper = "QWERTYUIOPASDFGHJKLZXCVBNM"
+    symbols = "!@#$%^&*()-_=+~[]/;[]|}{:>?<"
+    characters = numbers + low + upper + symbols
 
-        # Characters List
-        self.pwd = []
-
-    def generator(self, length=64):
-        # Program
+    @classmethod
+    def generator(cls, length=64, duplicate_char=True, characters=characters):
+        pwd = []
         for count in range(length):
-            choice = random.choice(self.characters)
-            self.pwd.append(choice)
+            choice = random.choice(characters)
+            choice = Password.duplicate(pwd, choice) if duplicate_char is False else choice
+            pwd.append(choice)
             del choice
 
         # Turns the pwd list into a string
-        pwd = ''.join(str(item) for item in self.pwd)
+        pwd = ''.join(str(item) for item in pwd)
 
         return pwd
+
+    @classmethod
+    def duplicate(cls, array: list, char: str, characters=characters):
+        for i in array:
+            if i == char:
+                char = random.choice(characters)
+                Password.duplicate(array, char)
+            else:
+                continue
+        return char
