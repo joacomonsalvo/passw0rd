@@ -3,9 +3,9 @@ import random
 
 class Password:
     # Characters
-    numbers = "1234567890"
-    low = "qwertyuiopasdfghjklzxcvbnm"
-    upper = "QWERTYUIOPASDFGHJKLZXCVBNM"
+    numbers = "0123456789"
+    low = "abcdefghijklmnopqrstuvwxyz"
+    upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
     symbols = "!@#$%^&*()-_=+~[]/;[]|}{:>?<"
     characters = numbers + low + upper + symbols
 
@@ -29,6 +29,4 @@ class Password:
             if i == char:
                 char = random.choice(characters)
                 Password.duplicate(array, char)
-            else:
-                continue
         return char
