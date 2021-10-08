@@ -1,7 +1,7 @@
 # Passw0rd
 
-The project consists of an advanced password generator, which aims to help users use 
-more secure passwords in their accounts.
+The project consists of a password generator, which aims to help users use 
+more secure passwords in their accounts. Avaliable in pypi.
 
 
 ## Installation
