@@ -1,29 +1,35 @@
 import random
 
+numbers = "0123456789"
+low = "abcdefghijklmnopqrstuvwxyz"
+upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+symbols = "!@#$%^&*()-_=+~[]/;[]|}{>?<"
+characters = numbers + low + upper + symbols
 
-class Password:
-    # Characters
-    numbers = "0123456789"
-    low = "abcdefghijklmnopqrstuvwxyz"
-    upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
-    symbols = "!@#$%^&*()-_=+~[]/;[]|}{:>?<"
-    characters = numbers + low + upper + symbols
 
-    @classmethod
-    def generator(cls, length=64, duplicate_char=True, characters=characters):
-        pwd = []
-        for count in range(length):
-            choice = random.choice(characters)
-            choice = Password.duplicate(pwd, choice) if duplicate_char is False else choice
-            pwd.append(choice)
-            del choice
+def generate_pwd(length=64, duplicate_char=True, characters=characters):
+    pwd = []
+    for count in range(length):
+        choice = random.choice(characters)
+        pwd.append(choice)
+        del choice
 
-        return ''.join(str(item) for item in pwd)
+    return ''.join(str(item) for item in pwd)
 
-    @classmethod
-    def duplicate(cls, array: list, char: str, characters=characters):
-        for i in array:
-            if i == char:
-                char = random.choice(characters)
-                Password.duplicate(array, char)
-        return char
+def is_secure(pwd: str):
+    length = len(pwd)
+    
+    if length <= 10:
+        return "TOTALLY UNSAFE"
+    elif length > 10 and length < 20:
+        return "UNSAFE"
+    elif length > 20 and length < 30:
+        return "NOT ENOUGH SAFE"
+    elif length > 30 and length < 40:
+        return "GOOD ENOUGH"
+    elif length > 40 and length < 50:
+        return "VERY GOOD"
+    elif length > 50 and length < 60:
+        return "EXCELLENT"
+    elif length > 60 and length < 64:
+        return "PERFECT"
