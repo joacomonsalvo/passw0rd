@@ -18,10 +18,7 @@ class Password:
             pwd.append(choice)
             del choice
 
-        # Turns the pwd list into a string
-        pwd = ''.join(str(item) for item in pwd)
-
-        return pwd
+        return ''.join(str(item) for item in pwd)
 
     @classmethod
     def duplicate(cls, array: list, char: str, characters=characters):
