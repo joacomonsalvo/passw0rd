@@ -5,7 +5,7 @@ with open("README.md", "r") as fh:
 
 setup(
     name="passw0rd",
-    version="0.0.1",
+    version="1.0.0",
     description="Password Generator",
     url="https://github.com/joacomonsalvo/passw0rd",
     author="Joaco Monsalvo",

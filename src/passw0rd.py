@@ -7,7 +7,7 @@ symbols = "!@#$%^&*()-_=+~[]/;[]|}{>?<"
 characters = numbers + low + upper + symbols
 
 
-def generate_pwd(length=64, duplicate_char=True, characters=characters):
+def generate_pwd(length=64, characters=characters):
     pwd = []
     for count in range(length):
         choice = random.choice(characters)
