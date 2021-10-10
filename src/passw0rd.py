@@ -13,7 +13,6 @@ def generate_pwd(length=64, characters=characters):
         choice = random.choice(characters)
         pwd.append(choice)
         del choice
-
     return ''.join(str(item) for item in pwd)
 
 def is_secure(pwd: str):
